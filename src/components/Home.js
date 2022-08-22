@@ -5,13 +5,6 @@ import "../Styles/Home.css";
 import Dialog from "./Dialog";
 
 const Home = () => {
-  //Popup box
-  const [open, Setisopen] = useState(false);
-
-  const togglePopup = () => {
-    Setisopen(!open);
-  };
-
   let history = useNavigate();
 
   const [user, setUser] = useState([]);
