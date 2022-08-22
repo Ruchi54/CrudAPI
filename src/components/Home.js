@@ -1,21 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import {
-  BrowserRouter,
-  Link,
-  Router,
-  Routes,
-  useNavigate,
-} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../Styles/Home.css";
 import Dialog from "./Dialog";
 
 const Home = () => {
   //Popup box
-  //const [open, Setisopen] = useState(false);
-  const [open, Setisopen] = useState({
-    show: false,
-  });
+  const [open, Setisopen] = useState(false);
 
   const togglePopup = () => {
     Setisopen(!open);
@@ -40,7 +31,6 @@ const Home = () => {
   };
 
   const deleteUser = async (id) => {
-    //alert("Are you sure?");
     await axios
       .delete(`https://gorest.co.in/public/v2/users/${id}`, {
         headers: {
@@ -60,12 +50,6 @@ const Home = () => {
 
   return (
     <>
-      {/*<div className="add_user">
-          <Link to="/user/add">
-            <button>Add user</button>
-          </Link>
-  </div>*/}
-
       <h2>User Page</h2>
       <div>
         <table>
@@ -116,7 +100,6 @@ const Home = () => {
                       <button
                         className="delete_button"
                         onClick={() => deleteUser(data.id)}
-                        //onClick={togglePopup}
                       >
                         Delete
                       </button>
@@ -127,19 +110,6 @@ const Home = () => {
             );
           })}
         </table>
-        {/*{open && (
-          <Dialog
-            handleClose={togglePopup}
-            content={
-              <>
-                <>
-                  <div>Are you sure to delete</div>
-                  <button onClick={() => deleteUser(data.id)}>Yes</button>
-                </>
-              </>
-            }
-          />
-          )}*/}
       </div>
     </>
   );

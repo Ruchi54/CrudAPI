@@ -15,7 +15,7 @@ const EditUser = () => {
     //female: "",
   });
 
-  const { name, email, status, gender } = user;
+  const { name, email, status } = user;
 
   const onInputChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
@@ -56,8 +56,6 @@ const EditUser = () => {
 
     setUser(result.data);
   };
-
-  //console.log("ID", id);
 
   return (
     <>
@@ -112,7 +110,6 @@ const EditUser = () => {
             <input
               class="form-check-input"
               type="radio"
-              //name="flexRadioDefault"
               name="gender"
               id="flexRadioDefault1"
               onChange={(e) => onInputChange(e)}

@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { useHistory, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "../Styles/Home.css";
 
 const AddUser = () => {
@@ -9,11 +9,9 @@ const AddUser = () => {
     email: "",
     status: "",
     gender: "",
-    //male: "",
-    //female: "",
   });
 
-  const { name, email, status, gender } = user;
+  const { name, email, status } = user;
 
   const onInputChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
@@ -36,22 +34,7 @@ const AddUser = () => {
       .catch((error) => {
         console.log(error);
       });
-    /*const url = "https://gorest.co.in/public/v2/users";
-    fetch(url, {
-      method: "POST",
-      headers: {
-        //Accept: "application/json",
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
-      },
-      body: JSON.stringify(user),
-    })
-      .then((resp) => {
-        console.log("Resp", resp);
-      })
-      .catch((e) => {
-        console.log("e", e);
-      });*/
+
     history("/");
   };
   return (
@@ -107,7 +90,6 @@ const AddUser = () => {
             <input
               class="form-check-input"
               type="radio"
-              //name="flexRadioDefault"
               name="gender"
               id="flexRadioDefault1"
               onChange={(e) => onInputChange(e)}
